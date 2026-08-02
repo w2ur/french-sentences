@@ -15,8 +15,8 @@ wrong: abbreviations, decimal numbers, and quoted dialogue.
 No npm package segments French this well. Generic sentence-splitters
 (built for English, or language-agnostic) trip over:
 
-- **Abbreviations** — `M. Dupont`, `Mme Martin`, `cf. p. 12`, `n° 5`,
-  `av. J.-C.` all contain periods that are not sentence boundaries.
+- **Abbreviations** — `M. Dupont`, `Mme Martin`, `cf. p. 12`, `n° 5` all
+  contain periods that are not sentence boundaries.
 - **Decimal numbers** — `Il a 5.4 ans.` should not split at `5.4`.
 - **Guillemets** — French dialogue uses `« … »`, not `"…"`. A period
   inside a quote should only close the sentence when the next
@@ -24,6 +24,16 @@ No npm package segments French this well. Generic sentence-splitters
   quoted passage, however many sentences it contains, stays open.
 
 `detectSentences` handles all three, with zero runtime dependencies.
+
+## Known limitation
+
+The abbreviation guard only fires when the period being tested is the
+**final** character of a listed abbreviation. Compound abbreviations that
+contain an internal period — `av. J.-C.`, `apr. J.-C.` — are still split
+at that internal period, so `Il est né av. J.-C. selon la légende.`
+yields three ranges rather than one. This is the behaviour of the
+extracted algorithm and is covered by a test that asserts the true
+output; it is documented here rather than silently patched.
 
 ## Install
 
