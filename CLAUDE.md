@@ -35,12 +35,16 @@ npm test            # builds, then runs dist/test/ with node --test
 
 ## Project-Specific Rules
 
-- **The algorithm in `src/sentences.ts` is extracted verbatim from
-  `w2ur/palimpseste-nacre`.** Do not rewrite its logic. The only
-  deliberate deviation from the source is non-null assertions (`!`) at
-  four already bounds-checked string-index reads, added to satisfy this
-  repo's `noUncheckedIndexedAccess` tsconfig option (the source repo
-  didn't enable it) — no behavioral change.
+- **The algorithm in `src/sentences.ts` was extracted verbatim from an
+  earlier desktop-writing app of the owner's, whose repo has since been
+  deleted.** Do not rewrite its logic. There is no upstream left to
+  compare against, so this repo's tests are now the only specification of
+  the intended behaviour — treat a failing test as the authority, not as
+  something to adjust until it passes. The only deliberate deviation from
+  the original source is non-null assertions (`!`) at four already
+  bounds-checked string-index reads, added to satisfy this repo's
+  `noUncheckedIndexedAccess` tsconfig option (the source didn't enable
+  it) — no behavioral change.
 - The abbreviation guard only matches when a checked period is the *final*
   character of a listed abbreviation (see `FR_ABBREV` in
   `src/sentences.ts`). Compound abbreviations with an internal period

@@ -64,10 +64,24 @@ for (const s of sentences) {
 `detectSentences(text: string): SentenceRange[]` where
 `SentenceRange = { start: number; end: number; text: string }`.
 
-## Provenance
+## Tests
 
-Extracted from
-[`w2ur/palimpseste-nacre`](https://github.com/w2ur/palimpseste-nacre)'s
-`src/model/sentences.ts`, before that repo was archived. The algorithm is
-unchanged; this package generalizes the module out of the desktop-writing
-app it was built for and gives it its own build, tests, and repo.
+`npm test` builds, then runs 15 tests under `node --test` — the Node
+built-in runner, no test-framework dependency. The suite is pure:
+`detectSentences` takes a string and returns offsets, so there is nothing
+to stub and no I/O to mock.
+
+The compound-abbreviation limitation described above has its own test,
+which asserts the behaviour the code actually has rather than the
+behaviour it ought to have. That is deliberate — the day someone fixes it,
+that test fails and tells them what they changed.
+
+## Stability
+
+`detectSentences` is the entire public API, and its signature is settled.
+The package is versioned `0.1.0` and installed from a git ref rather than
+npm, so pin a commit if you need reproducible builds.
+
+---
+
+Made with care by [William](https://william.revah.paris)
