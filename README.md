@@ -3,6 +3,8 @@ name: "french-sentences"
 tagline_fr: "Segmentation de phrases françaises qui gère abréviations, virgules décimales et guillemets."
 tagline_en: "French sentence segmentation that handles abbreviations, decimal commas and guillemets."
 about_en: "French sentence segmentation that handles abbreviations, decimal commas and guillemets. Zero dependencies, TypeScript, ESM."
+facts_fr: "34 abréviations françaises reconnues, 15 tests, zéro dépendance."
+facts_en: "34 French abbreviations recognised, 15 tests, zero dependencies."
 ---
 
 # french-sentences
