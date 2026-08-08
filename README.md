@@ -1,5 +1,5 @@
 ---
-name: "french-sentences"
+name: "French Sentences"
 tagline_fr: "Segmentation de phrases françaises qui gère abréviations, virgules décimales et guillemets."
 tagline_en: "French sentence segmentation that handles abbreviations, decimal commas and guillemets."
 about_en: "French sentence segmentation that handles abbreviations, decimal commas and guillemets. Zero dependencies, TypeScript, ESM."
