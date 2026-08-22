@@ -1,11 +1,37 @@
 {
   "name": "french-sentences",
-  "version": "0.1.0",
-  "description": "French-aware sentence segmentation: abbreviations, decimal commas, guillemets.",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "French sentence segmentation that knows French abbreviations and « guillemets ». Zero runtime dependencies, TypeScript, ESM.",
+  "keywords": [
+    "french",
+    "francais",
+    "nlp",
+    "sentence",
+    "sentences",
+    "sentence-boundary",
+    "sentence-detection",
+    "sentence-splitter",
+    "segmentation",
+    "tokenizer",
+    "abbreviations",
+    "guillemets",
+    "text-processing",
+    "intl-segmenter",
+    "typescript",
+    "esm",
+    "zero-dependency"
+  ],
   "license": "MIT",
-  "private": true,
   "author": "William Revah",
+  "homepage": "https://github.com/w2ur/french-sentences#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w2ur/french-sentences.git"
+  },
+  "bugs": {
+    "url": "https://github.com/w2ur/french-sentences/issues"
+  },
+  "type": "module",
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
   "exports": {
@@ -14,6 +40,7 @@
       "import": "./dist/src/index.js"
     }
   },
+  "sideEffects": false,
   "files": [
     "dist/src"
   ],
@@ -24,10 +51,12 @@
     "build": "tsc",
     "pretest": "npm run build",
     "test": "node --test dist/test/*.test.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm test"
   },
   "devDependencies": {
     "@types/node": "^22.20.1",
+    "fast-check": "^4.9.0",
     "typescript": "^5.7.2"
   }
 }
