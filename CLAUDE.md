@@ -39,23 +39,9 @@ npm test            # builds, then runs dist/test/ with node --test
 
 ## Project-Specific Rules
 
-- **The algorithm in `src/sentences.ts` began as a verbatim extraction from an
-  earlier desktop-writing app of the owner's, whose repo has since been
-  deleted. That is history now, not a constraint.** On 2026-08-22 the owner
-  explicitly authorised correcting it, and it was substantially rewritten:
-  two-class abbreviations, span matching, single-pass quote depths. The rule
-  it replaces said "do not rewrite its logic" and "treat a failing test as the
-  authority, not as something to adjust until it passes" — **that rule is
-  retired, and a future session must not restore the old behaviour on the
-  strength of it.** What survives of its intent: there is still no upstream to
-  compare against, so **this repo's tests remain the only specification**.
-  Change behaviour deliberately and with a regression test, never as a
-  side effect.
-- **Every regression test was verified to fail against the previous
-  implementation before being committed** (`git show <prev>:src/sentences.ts`
-  swapped in, suite run, 7 of the new tests failed, implementation restored).
-  Keep doing this — a test that has never produced the opposite answer is not
-  evidence, and this suite is the whole specification.
+- **There is no upstream to compare against, so this repo's tests remain the
+  only specification.** Change behaviour deliberately and with a regression
+  test, never as a side effect.
 - **Abbreviations are two classes, and the distinction is load-bearing.**
   `ABBREV_ALWAYS` (titles: `M.`, `Mme.`, `Dr.`…) can never end a sentence, so
   they guard unconditionally. `ABBREV_CONTEXTUAL` (`etc.`, `art.`, `p.`,
@@ -80,11 +66,7 @@ npm test            # builds, then runs dist/test/ with node --test
   property tests in `test/sentences.property.test.ts` and does not ship — the
   published tarball is `dist/src/`, `README.md`, `LICENSE` and
   `package.json`, verified with `npm pack --dry-run`.
-- **This package IS published to npm** as `french-sentences`, public, since
-  1.0.0 on 2026-08-22. The `"private": true` flag was removed with the owner's
-  explicit sign-off. Segmentation output is part of the public contract:
-  callers store `start`/`end` offsets, so **a behaviour change is a breaking
-  change and takes a major bump**, not a patch.
-- No `.nvmrc`, no `engines` pin above Node 24 — see the global CLAUDE.md
-  policy on Vercel/Node compatibility (not that this repo deploys to
-  Vercel, but the same ceiling applies portfolio-wide).
+- **This package IS published to npm** as `french-sentences`, public.
+  Segmentation output is part of the public contract: callers store
+  `start`/`end` offsets, so **a behaviour change is a breaking change and
+  takes a major bump**, not a patch.
