@@ -35,7 +35,8 @@ npm test            # builds, then runs dist/test/ with node --test
   in-memory strings, nothing to stub.
 - `test/sentences.test.ts` pins French behaviour by example;
   `test/sentences.property.test.ts` pins the contract (the ranges partition
-  the input exactly) over arbitrary generated input, 1000 runs each.
+  the input exactly) over arbitrary generated input; that file's `RUNS`
+  constant owns the run count.
 
 ## Project-Specific Rules
 
@@ -61,11 +62,9 @@ npm test            # builds, then runs dist/test/ with node --test
 - **Straight double quotes (`"`) are deliberately not a quotation pair.** The
   same character opens and closes, so pairing them guesses. `« »` and `“ ”`
   are handled; this is a decision, not an omission.
-- **Zero *runtime* dependencies.** Do not add one without updating this file
-  and the README to explain why. `fast-check` is a devDependency for the
-  property tests in `test/sentences.property.test.ts` and does not ship — the
-  published tarball is `dist/src/`, `README.md`, `LICENSE` and
-  `package.json`, verified with `npm pack --dry-run`.
+- **`fast-check` is a devDependency and does not ship.** It backs the property
+  tests in `test/sentences.property.test.ts`; the published tarball is the
+  `files` field in `package.json` — verify with `npm pack --dry-run`.
 - **This package IS published to npm** as `french-sentences`, public.
   Segmentation output is part of the public contract: callers store
   `start`/`end` offsets, so **a behaviour change is a breaking change and

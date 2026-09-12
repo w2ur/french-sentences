@@ -2,4 +2,9 @@ node_modules/
 dist/
 .env*
 .DS_Store
-.claude/
+# Claude Code per-agent memory and local state (never the whole .claude/,
+# which would silently untrack any project skill written there)
+.claude/agent-memory/
+.claude/agent-memory-local/
+.claude/worktrees/
+.claude/settings.local.json
