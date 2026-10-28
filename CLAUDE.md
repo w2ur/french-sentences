@@ -55,7 +55,7 @@ npm test            # builds, then runs dist/test/ with node --test
 - **`ABBREVS` is sorted longest-first, and that ordering is required for
   correctness, not tidiness.** `av. J.-C.` must be matched in preference to the
   `av.` nested inside it, or the period after `J` is read as a boundary.
-- **Known miss, documented in the README:** a contextual abbreviation followed
+- **Known miss, documented in `docs/behaviour.md`:** a contextual abbreviation followed
   by a capitalised proper noun splits where it should not (`art. L. 123`).
   Fixing it needs a notion of what follows an abbreviation beyond
   capitalisation; do not paper over it by moving entries into `ABBREV_ALWAYS`.
