@@ -29,7 +29,7 @@ detectSentences("M. Dupont est arrivé. Il dit : « Bonjour. » Puis il partit."
 //   "Puis il partit." ]
 ```
 
-It is a piece pulled out of the first version of
+It is a spin-off of
 [Palimpsest](https://william.revah.paris/en/stories/palimpsest), a writing tool
 of mine. The tool was archived; this part seemed worth keeping, so I published
 it on its own, for whoever needs it.
